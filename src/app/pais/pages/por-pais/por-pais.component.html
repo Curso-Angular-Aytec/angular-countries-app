@@ -1,15 +1,27 @@
-<h2>Por país</h2>
-<hr>
-<div class="row">
-    <div class="col">
-        <app-pais-input
-            (onEnter)="buscar($event)"
-            (onDebounce)="sugerencias($event)"
-            placeholder="Buscar país...">
-        </app-pais-input>
+<div class="animate__animated animate_fadeIn animate__faster">
+    <h2>Por país</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <app-pais-input
+                (onEnter)="buscar($event)"
+                (onDebounce)="sugerencias($event)"
+                placeholder="Buscar país...">
+            </app-pais-input>
+        </div>
     </div>
+    <ul class="list-group">
+        <li *ngFor="let pais of paisesSugeridos"
+            class="list-group-item list-group-item-action">
+            <a class="nav-link" [routerLink]="['/pais', ]"></a> <!-- Problemas con las interfaz -->
+        </li>
+        <li class="list-group-item list-group-item-action">
+        <a class="nav-link"></a> <!-- Problemas con las interfaz (6:35) -->
+    </li>
+    </ul>
+    <hr> 
 </div>
-<hr>
+
 <div *ngIf="hayError"
     class="alert alert-danger">
     No se encontró nada con el término {{ termino }}
